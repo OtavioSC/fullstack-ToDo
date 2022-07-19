@@ -4,14 +4,14 @@ import TaskSchema from "../models/TaskSchema";
 
 @InputType()
 class TaskInput {
-  @Field(() => String)
+  @Field()
   title: String;
-  @Field(() => String)
+  @Field()
   description: String;
-  @Field(() => String)
+  @Field()
   date: String;
-  @Field(() => String)
-  duration: String;
+  @Field()
+  duration: Number;
 }
 
 @Resolver(Task)
@@ -22,9 +22,35 @@ export class TaskResolver {
     return tasks;
   }
 
+  @Query(() => Task)
+  async task(@Arg("id") id: string) {
+    const task = await TaskSchema.findById(id);
+    return task;
+  }
+
   @Mutation(() => Task)
   async createTask(@Arg("taskInput") taskInput: TaskInput) {
     const task = await TaskSchema.create(taskInput);
+    return task;
+  }
+
+  @Mutation(() => Task)
+  async deleteTask(@Arg("id") id: string) {
+    const task = await TaskSchema.findByIdAndDelete(id);
+    return task;
+  }
+
+  @Mutation(() => Task)
+  async updateTask(
+    @Arg("id") id: string,
+    @Arg("taskInput") taskInput: TaskInput
+  ) {
+    const task = await TaskSchema.findByIdAndUpdate(id, {
+      title: taskInput.title,
+      description: taskInput.description,
+      date: taskInput.date,
+      duration: taskInput.duration,
+    });
     return task;
   }
 }

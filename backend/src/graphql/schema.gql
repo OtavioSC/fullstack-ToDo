@@ -5,22 +5,30 @@
 
 type Query {
   tasks: [Task!]!
+  task(id: String!): Task!
 }
 
 type Task {
+  _id: ID!
   title: String!
   description: String!
   date: String!
-  duration: String!
+  duration: Float!
+  createdAt: DateTime!
 }
+
+# The javascript `Date` as string. Type represents date and time as the ISO Date string.
+scalar DateTime
 
 type Mutation {
   createTask(taskInput: TaskInput!): Task!
+  deleteTask(id: String!): Task!
+  updateTask(taskInput: TaskInput!, id: String!): Task!
 }
 
 input TaskInput {
   title: String!
   description: String!
   date: String!
-  duration: String!
+  duration: Float!
 }

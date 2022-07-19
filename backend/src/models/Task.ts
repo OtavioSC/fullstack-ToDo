@@ -1,15 +1,19 @@
-import { ObjectType, Field } from "type-graphql";
+import { ObjectType, Field, ID } from "type-graphql";
 
 @ObjectType()
 class Task {
-  @Field(() => String)
+  @Field(() => ID)
+  _id: any;
+  @Field()
   title: String;
-  @Field(() => String)
+  @Field()
   description: String;
-  @Field(() => String)
+  @Field()
   date: String;
-  @Field(() => String)
-  duration: String;
+  @Field()
+  duration: Number;
+  @Field()
+  createdAt: Date;
 }
 
 export { Task };

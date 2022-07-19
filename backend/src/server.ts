@@ -2,7 +2,6 @@ import "reflect-metadata";
 
 import { ApolloServer } from "apollo-server";
 import { buildSchema } from "type-graphql";
-import path from "path";
 import "./database/connection";
 import { TaskResolver } from "./resolvers/TaskResolver";
 

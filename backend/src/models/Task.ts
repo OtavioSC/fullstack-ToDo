@@ -1,17 +1,18 @@
+import { ObjectId } from "mongodb";
 import { ObjectType, Field, ID } from "type-graphql";
 
 @ObjectType()
 class Task {
   @Field(() => ID)
-  _id: any;
+  _id: ObjectId;
   @Field()
   title: String;
   @Field()
   description: String;
   @Field()
-  date: String;
+  date: Date;
   @Field()
-  duration: Number;
+  duration: String;
   @Field()
   createdAt: Date;
 }

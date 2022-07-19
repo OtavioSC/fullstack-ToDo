@@ -9,9 +9,9 @@ class TaskInput {
   @Field()
   description: String;
   @Field()
-  date: String;
+  duration: String;
   @Field()
-  duration: Number;
+  date: Date;
 }
 
 @Resolver(Task)

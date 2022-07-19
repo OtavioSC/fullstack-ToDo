@@ -12,8 +12,8 @@ type Task {
   _id: ID!
   title: String!
   description: String!
-  date: String!
-  duration: Float!
+  date: DateTime!
+  duration: String!
   createdAt: DateTime!
 }
 
@@ -29,6 +29,6 @@ type Mutation {
 input TaskInput {
   title: String!
   description: String!
-  date: String!
-  duration: Float!
+  duration: String!
+  date: DateTime!
 }

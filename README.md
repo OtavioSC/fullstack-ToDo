@@ -13,8 +13,8 @@
   - [x] [Apollo Server](https://www.apollographql.com)
   - [x] [Type-graqhql](https://typegraphql.com/)
   - [x] [Node.js](https://nodejs.org/en/)
-  - [ ] [React.js](https://reactjs.org)
-  - [ ] [Ant Design](https://ant.design/)
+  - [x] [React.js](https://reactjs.org)
+  - [x] [Ant Design](https://ant.design/)
 
 ## How to Run
     // Install all dependencies

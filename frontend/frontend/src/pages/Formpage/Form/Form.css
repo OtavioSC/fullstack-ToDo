@@ -1,0 +1,10 @@
+@import "~antd/dist/antd.css";
+
+.container {
+  width: 50vw;
+  top: 50%;
+  right: 20%;
+  margin: auto;
+  margin-top: 10%;
+  border: none;
+}

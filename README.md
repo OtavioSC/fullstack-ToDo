@@ -16,7 +16,7 @@
   - [x] [React.js](https://reactjs.org)
   - [x] [Ant Design](https://ant.design/)
 
-## How to Run
+## How to run Backend
     // Install all dependencies
     yarn install
     
@@ -28,6 +28,16 @@
     
     // API URL
     http://localhost:4001
+
+## How to run Frontend
+    // Install all dependencies
+    yarn install
+    
+    // Run project
+    yarn run start
+    
+    // API URL
+    http://localhost:3000
     
 ## Files architecture
 ```

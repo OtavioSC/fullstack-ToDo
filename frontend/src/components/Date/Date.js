@@ -4,7 +4,7 @@ function DateComponent() {
   return (
     <>
       <Space direction="vertical">
-        <DatePicker />
+        <DatePicker showTime />
       </Space>
     </>
   );

@@ -55,8 +55,30 @@
 │       │   └── TaskResolver.ts
 │       └── server.ts
 └── froentend/
-    └── building...
-```
+    └── frontend/
+        ├── public/
+        └── src/
+            ├── graphql/
+            │   └── Queries.js
+            ├── lib/
+            │   └── apollo.js        
+            ├── pages/
+            │   ├── Formpage/
+            │   │   ├── Form/
+            │   │   │   ├── Form.css
+            │   │   │   └── Form.js
+            │   │   └── index.js
+            │   └── Homepage/
+            │       ├── Table
+            │       │   ├── Table.css
+            │       │   └── Table.js
+            │       └── index.js
+            ├── App.js
+            ├── App.css
+            ├── Index.js
+            ├── Index.js
+            └── routes.js
+```            
 
 ## Pipeline
 ### Backend

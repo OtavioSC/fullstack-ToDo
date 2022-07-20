@@ -1,7 +1,8 @@
 import mongoose, { Schema } from "mongoose";
+import { ObjectId } from "mongodb";
 
 type Task = {
-  _id?: any;
+  _id?: ObjectId;
   title: String;
   description: String;
   date: Date;

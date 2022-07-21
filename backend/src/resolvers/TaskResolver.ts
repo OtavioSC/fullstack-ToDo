@@ -28,6 +28,12 @@ export class TaskResolver {
     return task;
   }
 
+  @Query(() => Task)
+  async filter(@Arg("title") title: string) {
+    const task = await TaskSchema.find({ title: title });
+    return task;
+  }
+
   @Mutation(() => Task)
   async createTask(@Arg("taskInput") taskInput: TaskInput) {
     const task = await TaskSchema.create(taskInput);

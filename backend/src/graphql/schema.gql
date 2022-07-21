@@ -6,6 +6,7 @@
 type Query {
   tasks: [Task!]!
   task(id: String!): Task!
+  filter(title: String!): Task!
 }
 
 type Task {

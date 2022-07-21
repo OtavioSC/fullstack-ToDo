@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useMutation, useQuery } from "@apollo/client";
 import { Button, Form, Input } from "antd";
 import { Link } from "react-router-dom";
@@ -9,9 +9,11 @@ export default function Deletepage() {
   const [idDel, setIdDel] = useState("");
   const [deleteTask] = useMutation(DELETE_TASK);
   const { refetch } = useQuery(GET_TASKS);
+  const inputDelete = useRef("");
+
   return (
     <section className="container">
-      <h1 className="title"> Delete your task ❌</h1>
+      <h1 className="title"> Delete a task ❌</h1>
       <Form
         name="basic"
         labelCol={{
@@ -36,6 +38,7 @@ export default function Deletepage() {
           ]}
         >
           <Input
+            ref={inputDelete}
             placeholder="id"
             onChange={(e) => {
               setIdDel(e.target.value);

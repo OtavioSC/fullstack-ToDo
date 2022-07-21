@@ -2,23 +2,23 @@ import { useState } from "react";
 import { useMutation, useQuery } from "@apollo/client";
 import { Button, Form, Input, DatePicker } from "antd";
 import { Link } from "react-router-dom";
-import { CREATE_TASK, GET_TASKS } from "../../../graphql/Queries";
-import "./Form.css";
+import { UPDATE_TASK, GET_TASKS } from "../../graphql/Queries";
+import { dateFormatList } from "../Formpage/Form/Form";
+import "./index.css";
 
-export const dateFormatList = "YYYY-MM-DD HH:mm:ss";
-
-export default function MyForm() {
+export default function Editpage() {
+  const [idEdit, setIdDel] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
   const [duration, setDuration] = useState("");
 
-  const [createTask] = useMutation(CREATE_TASK);
+  const [updateTask] = useMutation(UPDATE_TASK);
   const { refetch } = useQuery(GET_TASKS);
 
   return (
     <section className="container">
-      <h1 className="title"> Create a new task 💻</h1>
+      <h1 className="title"> Edit a task 🎨</h1>
       <Form
         name="basic"
         labelCol={{
@@ -32,6 +32,23 @@ export default function MyForm() {
         }}
         autoComplete="off"
       >
+        <Form.Item
+          label="ID"
+          name="id"
+          rules={[
+            {
+              required: true,
+              message: "Please input an id to your delete the task!",
+            },
+          ]}
+        >
+          <Input
+            placeholder="id"
+            onChange={(e) => {
+              setIdDel(e.target.value);
+            }}
+          />
+        </Form.Item>
         <Form.Item
           label="Title"
           name="title"
@@ -103,7 +120,7 @@ export default function MyForm() {
             htmlType="submit"
             onClick={(e) => {
               e.preventDefault();
-              createTask({
+              updateTask({
                 variables: {
                   taskInput: {
                     title,
@@ -111,13 +128,14 @@ export default function MyForm() {
                     date,
                     duration,
                   },
+                  id: idEdit,
                 },
               });
               refetch();
             }}
             type="primary"
           >
-            Create task
+            Edit task
           </Button>
           <Link to="/">
             <Button style={{ marginLeft: 40 }}>View all tasks</Button>

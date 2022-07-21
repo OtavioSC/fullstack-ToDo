@@ -4,9 +4,9 @@ import { ObjectType, Field, ID } from "type-graphql";
 @ObjectType()
 class Task {
   @Field(() => ID)
-  _id: String;
+  _id?: String;
   @Field()
-  title: String;
+  title?: String;
   @Field()
   description: String;
   @Field()

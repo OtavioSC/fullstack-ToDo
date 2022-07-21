@@ -1,21 +1,26 @@
-import { Button, Checkbox, Form, Input } from "antd";
+import { useState } from "react";
+import { useMutation, useQuery } from "@apollo/client";
+import { Button, Form, Input, DatePicker } from "antd";
+import { Link } from "react-router-dom";
+import { CREATE_TASK, GET_TASKS } from "../../../graphql/Queries";
 import "./Form.css";
 
 export default function MyForm() {
-  const onFinish = (values) => {
-    console.log("Success:", values);
-  };
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [date, setDate] = useState("");
+  const [duration, setDuration] = useState("");
 
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-  };
+  const [createTask] = useMutation(CREATE_TASK);
+  const { refetch } = useQuery(GET_TASKS);
 
   return (
     <section className="container">
+      <h1 className="title"> Create a new task 💻</h1>
       <Form
         name="basic"
         labelCol={{
-          span: 8,
+          span: 4,
         }}
         wrapperCol={{
           span: 16,
@@ -23,56 +28,97 @@ export default function MyForm() {
         initialValues={{
           remember: true,
         }}
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
         <Form.Item
-          label="Username"
-          name="username"
+          label="Title"
+          name="title"
           rules={[
             {
               required: true,
-              message: "Please input your username!",
+              message: "Please input a title to your task!",
             },
           ]}
         >
-          <Input />
+          <Input
+            placeholder="title"
+            onChange={(e) => {
+              setTitle(e.target.value);
+            }}
+          />
         </Form.Item>
 
         <Form.Item
-          label="Password"
-          name="password"
+          label="Description"
+          name="description"
           rules={[
             {
               required: true,
-              message: "Please input your password!",
+              message: "Please input some description",
             },
           ]}
         >
-          <Input.Password />
+          <Input
+            placeholder="description"
+            onChange={(e) => {
+              setDescription(e.target.value);
+            }}
+          />
         </Form.Item>
 
         <Form.Item
-          name="remember"
-          valuePropName="checked"
+          label="Date"
+          name="date"
+          rules={[
+            {
+              required: true,
+            },
+          ]}
+        >
+          <DatePicker
+            showTime
+            onChange={(_, dateString) => setDate(dateString)}
+          />
+        </Form.Item>
+
+        <Form.Item label="Duration" name="duration">
+          <Input
+            placeholder="duration"
+            onChange={(e) => {
+              setDuration(e.target.value);
+            }}
+          />
+        </Form.Item>
+
+        <Form.Item
           wrapperCol={{
             offset: 8,
             span: 16,
           }}
         >
-          <Checkbox>Remember me</Checkbox>
-        </Form.Item>
-
-        <Form.Item
-          wrapperCol={{
-            offset: 8,
-            span: 16,
-          }}
-        >
-          <Button type="primary" htmlType="submit">
-            Submit
+          <Button
+            htmlType="submit"
+            onClick={(e) => {
+              e.preventDefault();
+              createTask({
+                variables: {
+                  taskInput: {
+                    title,
+                    description,
+                    date,
+                    duration,
+                  },
+                },
+              });
+              refetch();
+            }}
+            type="primary"
+          >
+            Create task
           </Button>
+          <Link to="/">
+            <Button style={{ marginLeft: 40 }}>View all tasks</Button>
+          </Link>
         </Form.Item>
       </Form>
     </section>

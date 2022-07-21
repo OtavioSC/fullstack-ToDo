@@ -1,10 +1,17 @@
 @import "~antd/dist/antd.css";
 
 .container {
+  height: 500px;
   width: 50vw;
-  top: 50%;
-  right: 20%;
   margin: auto;
   margin-top: 10%;
+  margin-right: 25%;
+  align-items: center;
   border: none;
+}
+
+.title {
+  margin: auto;
+  margin-bottom: 5%;
+  margin-right: 25%;
 }

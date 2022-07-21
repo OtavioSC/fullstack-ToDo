@@ -2,10 +2,16 @@
 
 .container {
   width: 50vw;
-  top: 50%;
   right: 50%;
   margin: auto;
-  margin-top: 10%;
-
   border: 1px solid #282a36;
+  margin-right: 25%;
+  align-items: center;
+  border: none;
+}
+
+.title {
+  font-weight: bold;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }

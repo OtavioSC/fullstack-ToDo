@@ -20,14 +20,16 @@ export const DELETE_TASK = gql`
   }
 `;
 
-// export const CREATE_TASK = gql`
-//   mutation () {
-//     createTask() {
-//       id
-//       name
-//     }
-//   }
-// `;
+export const CREATE_TASK = gql`
+  mutation createTask($taskInput: TaskInput!) {
+    createTask(taskInput: $taskInput) {
+      title
+      description
+      date
+      duration
+    }
+  }
+`;
 
 // export const UPDATE_TASK = gql`
 //   mutation () {

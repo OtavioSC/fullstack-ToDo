@@ -13,9 +13,9 @@ export const GET_TASKS = gql`
 `;
 
 export const DELETE_TASK = gql`
-  mutation deleteTask($id: String) {
+  mutation deleteTask($id: String!) {
     deleteTask(id: $id) {
-      title
+      _id
     }
   }
 `;

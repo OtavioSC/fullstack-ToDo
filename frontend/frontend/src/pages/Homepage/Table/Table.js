@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button, Table, Input } from "antd";
-import React, { useState } from "react";
+import React from "react";
 
 import { GET_TASKS } from "../../../graphql/Queries";
 import { useQuery } from "@apollo/client";
@@ -8,7 +8,6 @@ import { useQuery } from "@apollo/client";
 import "./Table.css";
 
 export default function MyTable() {
-  const [search, setSearch] = useState("");
   const { data, loading } = useQuery(GET_TASKS);
   const { Search } = Input;
 
@@ -49,9 +48,6 @@ export default function MyTable() {
     <section className="container">
       <h2 className="title"> Your Tasks 💻</h2>
       <Search
-        onChange={(e) => {
-          setSearch(e.target.value);
-        }}
         placeholder="Search a task"
         style={{ marginBottom: 16 }}
         loading={true}
@@ -74,7 +70,8 @@ export default function MyTable() {
       <Table
         bordered={true}
         columns={columns}
-        dataSource={!loading ? data.tasks : ["no data"]}
+        dataSource={!loading ? data.tasks : ["nothing"]}
+        rowKey={(record) => record.uid}
         pagination={{ pageSize: 6 }}
         size="small"
         align="center"

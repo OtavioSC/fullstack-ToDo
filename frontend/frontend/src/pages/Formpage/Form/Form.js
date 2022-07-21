@@ -43,7 +43,7 @@ export default function MyForm() {
           ]}
         >
           <Input
-            placeholder="title"
+            placeholder="Title"
             onChange={(e) => {
               setTitle(e.target.value);
             }}
@@ -61,7 +61,7 @@ export default function MyForm() {
           ]}
         >
           <Input
-            placeholder="description"
+            placeholder="Description"
             onChange={(e) => {
               setDescription(e.target.value);
             }}
@@ -84,9 +84,13 @@ export default function MyForm() {
           />
         </Form.Item>
 
-        <Form.Item label="Duration" name="duration">
+        <Form.Item
+          label="Duration"
+          name="duration"
+          rules={[{ required: true }]}
+        >
           <Input
-            placeholder="duration"
+            placeholder="Duration"
             onChange={(e) => {
               setDuration(e.target.value);
             }}

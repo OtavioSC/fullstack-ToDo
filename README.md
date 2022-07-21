@@ -21,8 +21,8 @@
     // Install all dependencies
     yarn install
     
-    // Create .env with mongodb connection
-    echo "MONGO_DB=URL" >> .env
+    // Create a valid .env with mongodb connection
+    cp env-example.txt .env
     
     // Run project
     yarn run start
@@ -64,6 +64,12 @@
             ├── lib/
             │   └── apollo.js        
             ├── pages/
+            │   ├── Deletepage/
+            │   │   ├── index.css
+            │   │   └── index.js     
+            │   ├── Editpage/
+            │   │   ├── index.css
+            │   │   └── index.js 
             │   ├── Formpage/
             │   │   ├── Form/
             │   │   │   ├── Form.css
@@ -83,10 +89,22 @@
 
 ## Pipeline
 ### Backend
-  - [x] CRUD GraphQL API
+  - [x] GraphQL Schema
+  - [x] CREATE Mutation
+  - [x] Update Mutation
+  - [x] Delete Mutation
+  - [x] FindAll Query
+  - [x] FindById Query
+  - [ ] Authentication
 ### Frontend
-  - [x] Main page
+  - [x] Homepage
+  - [x] Create Task page
+  - [x] Update Task page
+  - [x] Delete Task page
   - [x] Ant Design System
+  - [x] Apollo Client connection
+  - [x] Task visualization
+  - [ ] Data validation
   - [ ] Task visualization by day, month and year
   - [ ] Search field by task title
 ### Database

@@ -84,8 +84,8 @@
 ### Backend
   - [x] CRUD GraphQL API
 ### Frontend
-  - [ ] Main page
-  - [ ] Ant Design System
+  - [x] Main page
+  - [x] Ant Design System
   - [ ] Task visualization by day, month and year
   - [ ] Search field by task title
 ### Database

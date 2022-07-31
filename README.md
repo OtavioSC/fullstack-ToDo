@@ -197,6 +197,7 @@ mutation {
 
 ## Contact
 
-Otavio - [@otascar](https://twitter.com/otascar) - contato@otaviocarmo.com.br
+[Twitter](https://twitter.com/otascar)
 
-Project Link: [https://github.com/OtavioSC/fullstack-ToDo](https://github.com/OtavioSC/fullstack-ToDo)
+[Website](https://ocarmo.dev)
+

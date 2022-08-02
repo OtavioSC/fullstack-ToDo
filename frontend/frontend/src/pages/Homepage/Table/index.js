@@ -5,7 +5,7 @@ import React from "react";
 import { GET_TASKS } from "../../../graphql/Queries";
 import { useQuery } from "@apollo/client";
 
-import "./Table.css";
+import "./index.css";
 
 export default function MyTable() {
   const { data, loading } = useQuery(GET_TASKS);
